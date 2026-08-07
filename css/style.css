@@ -1,0 +1,226 @@
+/* ==================== Genel ==================== */
+html { scroll-behavior: smooth; }
+::selection { background: #D4AF37; color: #171009; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #FBF7EE; }
+::-webkit-scrollbar-thumb { background: #171009; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+/* ==================== Scroll Progress Bar ==================== */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #B8860B, #F4D160);
+  z-index: 70;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(212,175,55,0.6);
+}
+
+/* ==================== Header ==================== */
+#siteHeader.scrolled {
+  background: rgba(13, 9, 6, 0.94);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px -10px rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+}
+#siteHeader.scrolled #headerInner { height: 4.5rem; }
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 2px;
+  background: #D4AF37;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active-link::after { width: 100%; }
+.nav-link.active-link { color: #D4AF37 !important; }
+
+#mobileMenu {
+  background-color: #0D0906;
+}
+#mobileMenu.open { transform: translateX(0); }
+
+/* ==================== Hero ==================== */
+.hero-bg {
+  background: radial-gradient(120% 100% at 15% 20%, #2a1c0f 0%, #171009 55%, #0D0906 100%);
+}
+.hero-logo-glow {
+  position: absolute;
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(212,175,55,0.35) 0%, transparent 70%);
+  filter: blur(10px);
+  z-index: 0;
+}
+
+/* ==================== Marquee Ticker ==================== */
+.marquee-strip {
+  background: #0D0906;
+  border-top: 2px solid #D4AF37;
+  border-bottom: 2px solid #D4AF37;
+  overflow: hidden;
+  position: relative;
+  padding: 0.9rem 0;
+}
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  animation: marquee-scroll 34s linear infinite;
+}
+.marquee-strip:hover .marquee-track { animation-play-state: paused; }
+.marquee-item {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0 1.25rem;
+}
+.marquee-sep {
+  color: #D4AF37;
+  font-size: 1.1rem;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ==================== Watermark Section Text ==================== */
+.watermark-text {
+  position: absolute;
+  top: -1.75rem; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3rem, 11vw, 7.5rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(23,16,9,0.07);
+  white-space: nowrap;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.03em;
+}
+.watermark-text.watermark-light {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.07);
+}
+
+/* ==================== Scroll Reveal ==================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== Architectural Notch Buttons ==================== */
+.btn-notch {
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==================== Service Cards ==================== */
+.service-card {
+  border: 1px solid rgba(23,16,9,0.06);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px -12px rgba(212,175,55,0.35);
+}
+
+/* ==================== Contact Form ==================== */
+.form-input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid rgba(23,16,9,0.15);
+  background: #FBF7EE;
+  font-size: 0.95rem;
+  color: #171009;
+  transition: all 0.25s ease;
+}
+.form-input:focus {
+  outline: none;
+  border-color: #D4AF37;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(212,175,55,0.18);
+}
+.form-input.input-error { border-color: #dc2626; }
+.form-error {
+  display: none;
+  color: #dc2626;
+  font-size: 0.78rem;
+  margin-top: 0.35rem;
+}
+.form-error.show { display: block; }
+
+/* ==================== Footer Socials ==================== */
+.social-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.social-icon:hover { background: #D4AF37; color: #171009; transform: translateY(-3px); }
+
+/* ==================== Floating Buttons ==================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 10px 30px -6px rgba(37,211,102,0.7);
+  z-index: 40;
+  animation: pulse-wa 2.4s infinite;
+}
+.whatsapp-float:hover { transform: scale(1.08); }
+
+@keyframes pulse-wa {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
+  70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 28px; left: 28px;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: #171009;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 24px -6px rgba(23,16,9,0.5);
+  z-index: 40;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all 0.35s ease;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: #D4AF37; color: #171009; }
+
+@media (max-width: 640px) {
+  .whatsapp-float { bottom: 18px; right: 18px; width: 54px; height: 54px; font-size: 1.7rem; }
+  .back-to-top { bottom: 18px; left: 18px; width: 44px; height: 44px; }
+}
