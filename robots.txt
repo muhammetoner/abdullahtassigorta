@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.abdullahtassigorta.com.tr/sitemap.xml
